@@ -1,5 +1,6 @@
 package com.crisostomo.calculadoraimc
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -25,11 +26,12 @@ class ResultadoActivity : AppCompatActivity() {
         }
         bundle = intent.extras!!
 
-        textPeso = findViewById<TextView>(R.id.text_peso)
-        textAltura = findViewById<TextView>(R.id.text_altura)
-        textResultado = findViewById<TextView>(R.id.text_resultado)
+        textPeso = findViewById(R.id.text_peso)
+        textAltura = findViewById(R.id.text_altura)
+        textResultado = findViewById(R.id.text_resultado)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
         if (bundle.isEmpty) {
@@ -40,20 +42,21 @@ class ResultadoActivity : AppCompatActivity() {
         val pesoString = bundle.getString("peso")
         val alturaString = bundle.getString("altura")
 
-        var peso = pesoString?.toFloat()
+        val peso = pesoString?.toFloat()
         var altura = alturaString?.toFloat()
 
         if (altura != null && altura > 3.0f) {
             altura *= 0.01f
         }
 
-        textPeso.setText("Peso digitado: %.2f kg".format(peso))
-        textAltura.setText("Altura digitada: %.2f m".format(altura))
+        textPeso.text = "Peso digitado: %.2f kg".format(peso)
+        textAltura.text = "Altura digitada: %.2f m".format(altura)
         calculateImcResult(peso, altura)
     }
 
+    @SuppressLint("SetTextI18n")
     fun calculateImcResult(peso: Float?, altura: Float?) {
-        var imc: Float = 0.0F
+        var imc = 0.0F
 
         if (peso != null && altura != null) {
             imc = peso / (altura * altura)
@@ -68,6 +71,6 @@ class ResultadoActivity : AppCompatActivity() {
             else -> "Obesidade grau 3"
         }
 
-        textResultado.setText("Resultado: %.2f (%s)".format(imc, resultado))
+        textResultado.text = "Resultado: %.2f (%s)".format(imc, resultado)
     }
 }
