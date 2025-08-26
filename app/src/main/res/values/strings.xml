@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculadora IMC</string>
+    <string name="logo_content_desc">Logo do aplicativo IMC, contendo uma balança e o nome IMC.</string>
+    <string name="btn_text_value">Calcular IMC</string>
+    <string name="edit_peso_hint">Digite seu peso ex: 60.8</string>
+    <string name="edit_altura_hint">Digite sua altura ex: 1.70</string>
+    <string name="result_content_desc">Imagem com a descrição de cada resultado do IMC, contendo também uma silhueta para representar cada peso.</string>
+    <string name="text_peso_desc">Peso digitado: 0kg</string>
+    <string name="text_altura_desc">Altura digitada: 0m</string>
+    <string name="text_diagnostico_title">Diagnóstico</string>
+    <string name="text_resultado">Digite peso e altura</string>
+</resources>
