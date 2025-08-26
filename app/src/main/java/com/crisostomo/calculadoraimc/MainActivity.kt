@@ -35,27 +35,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         btnCalcular.setOnClickListener {
-            val pesoString = editPeso.text.toString().replace(",", ".")
-            val alturaString = editAltura.text.toString().replace(",", ".")
-
-            val peso = pesoString.toDouble()
-            val altura = alturaString.toDouble()
-            var alturaFormatada = altura
-
-            if (altura > 3.0) {
-                alturaFormatada *= 0.01
-            }
-
-            if (peso != null && altura != null) {
-                intent.putExtra("peso", peso)
-                intent.putExtra("altura", alturaFormatada)
-                startActivity(intent)
+            if (editPeso.text.isNullOrEmpty() || editAltura.text.isNullOrEmpty()) {
+                Toast.makeText(this, "Digite um peso e altura válido!", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(
-                    this,
-                    "Prencha os campos Peso e Altura corretamente",
-                    Toast.LENGTH_LONG
-                )
+                val pesoString = editPeso.text.toString().replace(",", ".")
+                val alturaString = editAltura.text.toString().replace(",", ".")
+
+                intent.putExtra("peso", pesoString)
+                intent.putExtra("altura", alturaString)
+                startActivity(intent)
             }
         }
     }
