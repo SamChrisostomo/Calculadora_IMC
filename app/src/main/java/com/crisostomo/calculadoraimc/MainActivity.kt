@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnCalcular = findViewById(R.id.btn_calcular)
-        editPeso = findViewById<EditText>(R.id.edit_peso)
-        editAltura = findViewById<EditText>(R.id.edit_altura)
+        editPeso = findViewById(R.id.edit_peso)
+        editAltura = findViewById(R.id.edit_altura)
         intent = Intent(this, ResultadoActivity::class.java)
     }
 
